@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <style>
+       body{
+        font-family: arial, helvetica;
+       }
+      ul{
+        margin:0;
+        padding: 0;
+        list-style: none;
+         width:100%;
+       }
+     ul li{
+        font-size: 16pt;
+        font-family: arial;
+        float:left;
+        width:25%;
+        height:50px;
+        line-height: 50px;
+        color: white;   
+        text-decoration: none;
+        margin:0;
+        background-color: #999966; 
+        text-align: center;
+        z-index: 50;
+        position: relative;
+    }
+      
+    a{
+       text-decoration: none;
+    }
+   /* a:hover{
+            color:orange; 
+    }*/
+    ul li li:hover{
+      background-color: #885D5D;
+    }
+    ul li li{
+      display:none;
+      width:100%;
+    }
+
+    label{
+       margin:35px 35px;
+
+    }
+    input[type=text]{
+      padding: 10px;  
+      border-radius: 3px;
+      width: 400px;
+      height: 20px;
+      margin:10px 35px;
+
+    
+    }
+    input[type=submit]{
+      height: 35px;
+      padding: 10px;
+      margin:0 35px;
+      text-decoration: none;
+      background-color:#E68A00;
+    }
+
+      
+    h3{
+      font-size: 16pt;
+      margin-top: 35px;
+    }
+    form{
+      height:350px;
+
+     
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <ul>
+          <li><a href="#">Home</a>
+          <ul> 
+            <li> <a href="">Link1</a></li>
+            <li> <a href="">Link2</a></li>
+            <li> <a href="">Link3</a></li>
+          </ul>
+          </li>
+          <li><a href="#">About Us</a>
+             <ul> 
+            <li> <a href="">Link1</a></li>
+            <li> <a href="">Link2</a></li>
+            <li> <a href="">Link3</a></li>
+          </ul></li>
+          <li><a href="#">Service</a>
+             <ul> 
+            <li> <a href="">Link1</a></li>
+            <li> <a href="">Link2</a></li>
+            <li> <a href="">Link3</a></li>
+          </ul></li>
+             <li><a href="#">Contact</a>
+             <ul> 
+            <li> <a href="">Link1</a></li>
+            <li> <a href="">Link2</a></li>
+            <li> <a href="">Link3</a></li>
+          </ul></li>
+      </ul>
+      <div>
+
+      <form >
+        <fildset>
+          <label>Name</label><br>
+          <input type="text" title="enter your full name" id="name-input"><br>
+          <label>Email Address</label><br>
+          <input type="text" title="enter your email address">
+          <br>
+          <label>Password</label><br>
+          <input type="text" title="enter your password" id="password-input">
+          <br>
+          <input type="submit" value="Submit">
+        <fildset>
+      </form>
+
+      <script>
+        $(document).ready(function(){
+          $('li').hover(function(){
+            $(this).find('ul>li').stop().fadeToggle(300);
+          });
+        });
+
+        $('form').submit(function(){
+          var name = $('#name-input').val()
+          if (name !== 'taslima'){
+          alert("You are not taslima!!!")
+          return false 
+        }else{
+          return true
+        }
+        var password = $('#password-input').val()
+        if (password !=='suma'){
+          alert("wrong password!!!")
+          return false
+        }else{
+          return true
+        }
+      })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<title> Light Box</title>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+
+  <style type="text/css">
+    body{
+        font-family: arial, helvetica;
+    }
+     .backdrop{
+        position:absolute;
+        top:0px;
+        left: 0px;
+        width:100%;
+        height:100%;
+        background: #000;
+        opacity:0;
+        z-index: 50;
+        display: none;
+     }
+
+     .box{
+        position: absolute;
+        top:20%;
+        left:30%;
+        width:500px;
+        height: 400px;
+        z-index: 51;
+        padding: 10px;
+        border: 5px #068;
+        border-radius: 5px;
+        display: none;
+
+     }
+     .close{
+        float: right;
+        margin-right: 15px;
+        cursor: pointer;
+     }
+     
+    </style>
+    </head>
+    <body>
+    	<h1> Light box</h1>
+    	<img src="images-1.jpg" width="100px" height="100px" class="lightbox">
+    	<img src="images-2.jpg" width="100px" height="100px" class="lightbox">
+    	<img src="images-3.jpg" width="100px" height="100px" class="lightbox">
+
+    	<div class="backdrop"></div>
+        <div class="box">
+            <div class="close">Close</div>
+            <img  width="500px" height="400px" id="displayImg">
+        </div>
+    <script type="text/javascript">
+          $(document).ready(function (){
+            $('.lightbox').click(function(){
+                var imgSrc = $(this).attr('src');
+                console.log(imgSrc)
+              $('.backdrop').animate({'opacity':'.5'}, 300, 'linear');
+              $('#displayImg').attr('src', imgSrc);
+              $('.backdrop, .box').css ('display', 'block');
+              });
+
+            $('.close').click(function(){
+            	close_tab();
+            });
+            $('.backdrop').click(function(){
+            	close_tab();
+            });
+            function close_tab(){
+            	$('.box, .backdrop').css('display','none')
+            }
+        });
+    </script>
+
+</body>
+</html>

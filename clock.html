@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+    </head>
+<body onload="startTime()" id="hh">
+
+<div id="txt"></div>
+<script>
+function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+    if(m % 2===0){
+        $("body").css("background-color", "#A36685");
+    }else{
+        $("body").css("background-color", "#335C33");
+    }
+}
+
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+
+</body>
+</html>
+ 
